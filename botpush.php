@@ -9,34 +9,21 @@ $accno = $_GET['accno'];
 $bank = $_GET['bank'];
 
 
-$username = $_GET['username'];
-$amount = $_GET['amount'];
-$bankto = $_GET['bankto'];
-$accnoto = $_GET['accnoto'];
-$date = $_GET['date'];
-$time = $_GET['time'];
-$tway = $_GET['tway'];
-$type =$_GET['type'];
 
 require "vendor/autoload.php";
 
-$access_token = 'YSwPWOmQZUB14QF6JAhdODRHiMs4Z0zotyIB4GlEokSYN9PTjc/n4xEFqaf7rdQcGxH26Kv0iML+c9zf8NPC1w4aS4bYzHVDLz26NqTZbTFFmj6HTbKnGKHn5/SBjo1N5VCe/0tXvSYlvHBT10mJOwdB04t89/1O/w1cDnyilFU=';
+$access_token = 'BrmEUzMed7LX0awTog3h98CadcpBXdzwloG/HA77y3TWhOG8cOWRONkNkUlFw9mrAK2f/9wWdKEyJmXoTZzJjWQp+VkcojGdUw0Kv3unksGrek2DZodmG9IeBBxxhvnWXxXQJ/6yK2WYLybykpVOmgdB04t89/1O/w1cDnyilFU=';
 
-$channelSecret = '29fff734004173ddce5cabc6fce23a38';
+$channelSecret = 'b82c3a36a40cc849cdd3785dd74a330c';
 
-$pushID = 'C4771fc3fc0b657a4d44933a1ba6fdd92';
+$pushID = 'C905dc957360f71026e3a5b820f671deb';
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-if($type == 'deposit'){
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("SBOBET\nฝากเงิน\nUsername : ".$username."\nเบอร์โทร : ".$mobile."\nธนาคารที่ใช้โอน : ".$bank."\nชื่อบัญชี : ".$accname."\nเลขที่บัญชี : ".$accno."\nจำนวนเงินที่ฝาก : ".$amount."\nธนาคารที่โอนเข้า : ".$bankto."\nเลขที่บัญชีที่โอนเข้า:  ".$accnoto."\nวันที่โอน : ".$date."\nเวลาโอน : ".$time."\nช่องทางการโอน :".$tway);}
-if($type == 'withdraw'){
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("SBOBET\nถอนเงิน\nUsername : ".$username."\nเบอร์โทร : ".$mobile."\nธนาคาร : ".$bank."\nชื่อบัญชี : ".$accname."\nเลขที่บัญชี : ".$accno."\nจำนวนเงินที่ถอน : ".$amount);}
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("eRequestแจ้งอุปกรณ์ชำรุด\nสถานะเอกสาร : ".$username."\nวันที่แจ้งชำรุด : ".$mobile."\nผู้แจ้ง : ".$bank."\nสถานีไฟฟ้า : ".$accname."\nอุปกรณ์ : ".$accno."\nผลิตภัณฑ์\/รุ่น  : ".$amount."\nรายละเอียดการชำรุด : ".$bankto);
 
-if(empty($type)){
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("SBOBET\nสมัครสมาชิก\nชื่อ : ".$name."\nเบอร์โทร : ".$mobile."\nemail : ".$email."\nLineID : ".$line."\nชื่อบัญชี : ".$accname."\nเลขที่บัญชี : ".$accno."\nธนาคาร : ".$bank);}
 
 
 
